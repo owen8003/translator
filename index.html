@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Omex translator</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" >
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+  <center>Omex translator</center>
+  <p> Please click on the English words to translate to German</p>
+  
+<img src="https://tinyurl.com/bdfu59mw"  width="300" height="200">
+
+
+<div>
+  <img src="https://tinyurl.com/2vbx6zus"  width="300" height="200">
+  </div>
+   <tr>
+          	
+          	<td>
+          	<input type="button" id="important" value="Important" onclick="translateWord('Important')">
+
+          	</td>
+          	
+          	<td>
+          	<input type="button" id="same" value="Same" onclick="translateWord('Same')">
+	
+          	</td>
+            
+          	<td>
+          	<input type="button" id="new" value="New" onclick="translateWord('New')">
+	
+          	</td>
+            	
+         
+         	<td>
+          
+          	</td>
+
+            <td>
+          	<input type="button" id="where" value="Where" onclick="translateWord('Where')">
+	
+          	</td>
+             <td>
+          	<input type="button" id="restroom" value="Restroom" onclick="translateWord('Restroom')">
+	
+          	</td>
+	 <td>
+          	<input type="button" id="is" value="Is" onclick="translateWord('Is')">
+	
+          	</td>
+           <td>
+          
+          	<input type="button" id="food" value="Food" onclick="translateWord('Food')">
+	
+          	</td>
+             <td>
+          
+          	<input type="button" id="directions" value="Directions" onclick="translateWord('Directions')">
+	
+          	</td>
+          	
+             <td>
+          
+          	<input type="button" id="how far" value="How far" onclick="translateWord('How far')">
+	
+          	</td>
+          	<td>
+          
+          	<input type="button" id="home" value="Home" onclick="translateWord('Home')">
+	
+          	</td>
+            <td>
+          
+          	<input type="button" id="grocery store" value="Grocery Store" onclick="translateWord('Grocery Store')">
+	
+          	</td>
+            <td>
+          
+          	<input type="button" id="car" value="Car" onclick="translateWord('Car')">
+	
+          	</td>
+            <td>
+          
+          	<input type="button" id="run" value="Run" onclick="translateWord('Run')">
+	
+          	</td>
+            <td>
+          
+          	<input type="button" id="will" value="Will" onclick="translateWord('Will')">
+	
+          	</td>
+            <td>
+          
+          	<input type="button" id="when" value="When" onclick="translateWord('When')">
+	
+          	</td>
+            <td>
+          
+          	<input type="button" id="help" value="Help" onclick="translateWord('Help')">
+	
+          	</td>
+            <td>
+          
+          	<input type="button" id="cost" value="Cost" onclick="translateWord('Cost')">
+	
+          	</td>
+             <td>
+          
+          	<input type="button" id="restaurants" value="Restaurants" onclick="translateWord('Restaurants')">
+	
+          	</td>
+             <td>
+          
+          	<input type="button" id="where can I find a bus/taxi?" value="Where can I find a bus/taxi?" onclick="translateWord('Where can I find a bus/taxi?')">
+	
+          	</td>
+              <td>
+          
+          	<input type="button" id="turn left at" value="Turn left at" onclick="translateWord('Turn left at')">
+	
+          	</td>
+          </tr>
+          
+		  
+          <!-- Start a new row... -->
+          
+          <tr>
+          	
+          	<td>
+          	<textarea id="output" name="outputText"></textarea>
+          	</td>
+            
+            <td>
+          	<img id = "image"
+			width       = "90"
+			height      = "90"
+			border      = "0">
+          	</td>
+          	
+          </tr>
+          <script>
+
+		var englishDictionary = ["Important", "Same", "New", "Where", "Restroom", "Is", "Food", "Directions", "How far", "Home", "Grocery Store", "Car", "Run", "Will", "When", "Help", "Cost", "Restaurants", "Where can I find a bus/taxi?", "Turn left at"];
+		var germanDictionary = ["Wichtig", "Gleich", "Neu", "Woher", "Toilette", "Ist", "Lebensmittel", "Richtungen", "Wie weit", "Heim", "Lebensmittelmarkt", "Wagen", "Lauf", "Wille", "Wann", "Hilfe", "Kosten", "Gaststätten", "Wo finde ich einen Bus/ein Taxi?", "Links abbiegen Bei"];
+
+		/*
+         * This function is responsible for updating the user interface.
+         * Given a word (passed as a parameter), the translated word is displayed, if possible.
+         */
+		function translateWord(word) 
+		{
+        	var germanWord;
+            
+			// Determine the Spanish word.
+			germanWord = findWord(word);
+            
+            if (germanWord != null)  // word was found
+            {
+				// Display the translated word to the user as well as a congratulatory message.
+				document.getElementById("output").value += " " + germanWord;
+                
+                document.getElementById("image").src = "https://tinyurl.com/bk3b762d";
+			}
+            else   // word was not found -- What a pity!
+            {
+            	document.getElementById("image").src = "https://tinyurl.com/4nnb9hw9";
+            	alert("The word, " + word + ", was not found in the dictionary!");
+            }
+		}
+
+		/*
+		 * This function searches the dictionary for the corresponding translated word.
+		 */
+		function findWord(word) 
+		{
+        	var wordIndex;
+            
+			for (wordIndex in englishDictionary)
+			{
+				if (word == englishDictionary[wordIndex])
+				{
+					return germanDictionary[wordIndex]; 
+				}
+			}
+            
+            // If we reached this place in the code, then the word could not be found.
+            
+            return null;
+            
+		}
+
+        </script>
+ </body>
+</html>
